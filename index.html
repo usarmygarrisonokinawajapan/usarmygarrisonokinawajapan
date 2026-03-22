@@ -7,22 +7,22 @@
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="homepage-lock-active">
+<body class="homepage-lock-active" style="overflow: hidden;">
     <!-- Background with animated Japan flag -->
     <div class="background-container">
         <div class="background-blur"></div>
     </div>
 
     <!-- Temporary Homepage Lock Screen -->
-    <div class="homepage-lock-screen" id="homepageLockScreen" aria-live="polite">
-        <div class="homepage-lock-card">
-            <div class="homepage-lock-warning-row">
-                <svg class="homepage-lock-warning-icon" viewBox="0 0 24 24" fill="none" stroke="#FFD700" stroke-width="2.5" aria-hidden="true">
+    <div class="homepage-lock-screen" id="homepageLockScreen" aria-live="polite" style="position: fixed; inset: 0; z-index: 3500; display: flex; align-items: center; justify-content: center; padding: 24px; background: linear-gradient(135deg, rgba(10, 24, 53, 0.88) 0%, rgba(8, 15, 32, 0.94) 100%); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);">
+        <div class="homepage-lock-card" style="width: min(680px, 100%); background: linear-gradient(135deg, rgba(26, 58, 111, 0.94) 0%, rgba(42, 79, 143, 0.92) 50%, rgba(17, 40, 72, 0.94) 100%); border: 2px solid rgba(255, 215, 0, 0.38); border-radius: 16px; padding: 26px 24px; box-shadow: 0 20px 55px rgba(0, 0, 0, 0.55), 0 0 35px rgba(255, 215, 0, 0.14);">
+            <div class="homepage-lock-warning-row" style="display: flex; align-items: flex-start; gap: 14px;">
+                <svg class="homepage-lock-warning-icon" viewBox="0 0 24 24" fill="none" stroke="#FFD700" stroke-width="2.5" aria-hidden="true" style="width: 34px; height: 34px; min-width: 34px; margin-top: 2px;">
                     <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3.05h16.94a2 2 0 0 0 1.71-3.05L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
                     <line x1="12" y1="9" x2="12" y2="13"></line>
                     <line x1="12" y1="17" x2="12.01" y2="17"></line>
                 </svg>
-                <p class="homepage-lock-message">
+                <p class="homepage-lock-message" style="margin: 0; color: rgba(255, 255, 255, 0.96); font-size: 15px; line-height: 1.75; font-weight: 600;">
                     現在このウェブページはご利用いただけません。詳細情報については、お客様情報を添えて「US Army Garrison Okinawa Japan」の公式アカウント担当者までご連絡ください。確認手続きが完了しましたら、再度お戻りください。
                 </p>
             </div>
