@@ -1,14 +1,28 @@
+/* ===== CONTENT PROTECTION ===== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-touch-callout: none;
+    user-select: none;
+    font-kerning: auto;
+}
+
+/* Prevent text and content selection */
+html, body {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-touch-callout: none;
 }
 
 html {
     width: 100%;
     height: auto;
-    -webkit-user-select: none;
-    user-select: none;
 }
 
 body {
@@ -19,9 +33,15 @@ body {
     padding: 0;
     overflow-x: hidden;
     overflow-y: auto;
-    -webkit-user-select: none;
-    user-select: none;
     position: static;
+}
+
+/* Prevent printable output */
+@media print {
+    html,
+    body {
+        display: none !important;
+    }
 }
 
 /* Background Container */

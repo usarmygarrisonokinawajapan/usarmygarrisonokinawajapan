@@ -55,9 +55,8 @@
             const loginForm = document.getElementById('loginForm');
             const loginError = document.getElementById('loginError');
 
-            // Load saved language preference
-            const savedLang = localStorage.getItem('preferredLanguage') || 'ja';
-            switchLanguage(savedLang);
+            // Force default language to Japanese on each page load
+            switchLanguage('ja');
 
             // Button click handlers
             langButtons.forEach(button => {

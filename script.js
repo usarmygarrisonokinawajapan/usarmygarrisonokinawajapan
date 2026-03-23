@@ -149,9 +149,8 @@ function switchLanguage(lang) {
 document.addEventListener('DOMContentLoaded', function() {
     const langButtons = document.querySelectorAll('.lang-btn');
     
-    // Load saved language preference
-    const savedLang = localStorage.getItem('preferredLanguage') || 'ja';
-    switchLanguage(savedLang);
+    // Force default language to Japanese on each page load
+    switchLanguage('ja');
     
     // Button click handlers
     langButtons.forEach(button => {
@@ -173,7 +172,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Login button - show floating modal
     const loginBtn = document.getElementById('loginBtn');
     const loginModalOverlay = document.getElementById('loginModalOverlay');
-    const floatingLoginModal = document.getElementById('floatingLoginModal');
     const modalCloseBtn = document.getElementById('modalCloseBtn');
     const modalLoginForm = document.getElementById('modalLoginForm');
     const passwordToggleBtn = document.getElementById('passwordToggleBtn');
@@ -276,7 +274,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Initialize modal language to Japanese when showing
-    const originalLoginBtnClick = loginBtn?.onclick;
     if (loginBtn) {
         loginBtn.addEventListener('click', function(e) {
             if (e.target === this) {
@@ -412,14 +409,13 @@ console.log('Language switching enabled');
 console.log('Login system active');
 
 // Scroll-hide header functionality
-let lastScrollPosition = 0;
 const headerLogoContainer = document.querySelector('.logo-container');
 const headerHamburgerBtn = document.querySelector('.hamburger-btn');
 const headerElement = document.querySelector('.header');
 
 if (headerLogoContainer && headerHamburgerBtn && headerElement) {
     window.addEventListener('scroll', function() {
-        currentScrollPosition = window.scrollY || document.documentElement.scrollTop;
+        const currentScrollPosition = window.scrollY || document.documentElement.scrollTop;
         
         // Get header height to know when to hide
         const headerHeight = headerElement.offsetHeight + 100;
@@ -434,6 +430,5 @@ if (headerLogoContainer && headerHamburgerBtn && headerElement) {
             headerHamburgerBtn.classList.remove('hide-on-scroll');
         }
         
-        lastScrollPosition = currentScrollPosition;
     }, false);
 }
