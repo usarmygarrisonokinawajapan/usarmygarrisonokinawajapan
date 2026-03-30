@@ -372,6 +372,52 @@
             }
         }
 
+        .urgent-note-banner {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 0 0 12px 0;
+            padding: 10px 12px;
+            border: 2px solid rgba(255, 82, 82, 0.95);
+            border-radius: 10px;
+            background: linear-gradient(90deg, rgba(255, 71, 71, 0.25) 0%, rgba(255, 170, 0, 0.22) 100%);
+            box-shadow: 0 0 0 1px rgba(255, 82, 82, 0.35), 0 0 18px rgba(255, 82, 82, 0.35);
+            animation: urgentPulse 1.5s ease-in-out infinite;
+        }
+
+        .urgent-note-pill {
+            background: rgba(255, 240, 180, 0.15);
+            border: 1px solid rgba(255, 240, 180, 0.6);
+            color: #FFF0B4;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0.9px;
+            padding: 4px 8px;
+            border-radius: 999px;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .urgent-note-text {
+            color: #FFFFFF;
+            font-size: 13px;
+            font-weight: 900;
+            letter-spacing: 0.4px;
+            text-transform: uppercase;
+            line-height: 1.35;
+        }
+
+        @keyframes urgentPulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 1px rgba(255, 82, 82, 0.35), 0 0 18px rgba(255, 82, 82, 0.35);
+            }
+            50% {
+                transform: scale(1.01);
+                box-shadow: 0 0 0 2px rgba(255, 132, 0, 0.45), 0 0 24px rgba(255, 104, 104, 0.5);
+            }
+        }
+
         /* Logout Confirmation Modal */
         .logout-modal-overlay {
             position: fixed;
@@ -497,38 +543,23 @@
 
             <div class="profile-field">
                 <label class="profile-field-label" data-ja="(リスク利益):" data-en="(RISK BENEFIT):">(リスク利益):</label>
-                <p class="profile-field-value gold" data-ja="21,500,000円" data-en="21,500,000 YEN">21,500,000 YEN</p>
+                <p class="profile-field-value gold" data-ja="22,753,000円" data-en="22,753,000 YEN">22,753,000 YEN</p>
             </div>
 
-            <!-- Verification Details Section with Loading Bar -->
+            <!-- Verification Details Section -->
             <div style="background: rgba(255, 215, 0, 0.1); border: 2px solid rgba(255, 215, 0, 0.3); border-radius: 12px; padding: 20px; margin-top: 30px;">
-                <h3 class="profile-details-title" data-ja="検証詳細" data-en="Verification Details" style="color: #FFD700; margin-bottom: 25px;">検証詳細</h3>
+                <h3 class="profile-details-title" data-ja="入金手続き詳細" data-en="DEPOSIT PROCEDURE DETAILS" style="color: #FFD700; margin-bottom: 25px;">入金手続き詳細</h3>
                 <div style="background: rgba(0, 0, 0, 0.3); border-radius: 8px; padding: 20px;">
-                    <p style="color: rgba(255, 255, 255, 0.9); margin: 0 0 30px 0; border-left: 3px solid #FFD700; padding-left: 10px;" data-ja="BNB 検証" data-en="BNB VERIFICATION">BNB VERIFICATION</p>
-                    
-                    <!-- Loading Bar -->
-                    <div style="margin-top: 20px; margin-bottom: 30px;">
-                        <div class="loading-bar-container" id="loadingBarContainer">
-                            <div class="loading-bar" id="loadingBar">
-                                <span class="loading-bar-text" id="loadingBarText">0%</span>
-                            </div>
-                        </div>
+                    <div class="urgent-note-banner">
+                        <span class="urgent-note-pill" data-ja="注意:" data-en="NOTE:">注意:</span>
+                        <span class="urgent-note-text" data-ja="これは緊急として扱ってください" data-en="THIS SHOULD BE TREATED AS URGENT">これは緊急として扱ってください</span>
                     </div>
-
-                    <!-- Warning Section -->
-                    <div style="display: flex; gap: 15px; align-items: flex-start; margin-top: 25px;">
-                        <svg class="warning-icon" viewBox="0 0 24 24" fill="none" stroke="#B7E642" stroke-width="2.5" style="width: 32px; height: 32px; min-width: 32px; margin-top: 2px;">
-                            <circle cx="12" cy="12" r="9"></circle>
-                            <path d="M8.7 12.2l2.2 2.2 4.6-4.6"></path>
-                        </svg>
-                        <p id="verificationCompletionNotice" style="color: rgba(255, 255, 255, 0.95); margin: 0; font-size: 14px; font-weight: 600; line-height: 1.5;">
-                            <span id="verificationCompletionText" data-ja="おめでとうございます、池田浩一様。あなたのBNBネットワーク認証は完了しました" data-en="CONGRATULATIONS MR. IKEDA KOICHI YOUR BNB NETWORK VERIFICATION HAS BEEN COMPLETED">CONGRATULATIONS MR. IKEDA KOICHI YOUR BNB NETWORK VERIFICATION HAS BEEN COMPLETED</span><span class="celebration-sticker" id="completionSticker">🎉</span>
-                        </p>
-                    </div>
+                    <p style="color: rgba(255, 255, 255, 0.9); margin: 0 0 12px 0; border-left: 3px solid #FFD700; padding-left: 10px;" data-ja="入金手続き詳細" data-en="DEPOSIT PROCEDURE DETAILS">入金手続き詳細</p>
+                    <p style="color: rgba(255, 255, 255, 0.95); margin: 0 0 20px 0; font-size: 14px; font-weight: 600; line-height: 1.5;" data-ja="ユーザーのBNBおよび銀行口座が現在入金額を受け取れる状態ではないため、22,753,000円の入金は保留中です。" data-en="DEPOSITE OF 22,753,000 YEN PENDING DUE TO USER'S BNB AND BANK ACCOUNT NOT ELIGIBLE TO RECEIVE THE DEPOSIT AMOUNT AT THE MOMENT.">ユーザーのBNBおよび銀行口座が現在入金額を受け取れる状態ではないため、22,753,000円の入金は保留中です。</p>
 
                     <!-- Contact Handler Text -->
                     <div style="margin-top: 20px; padding: 15px; background: rgba(255, 215, 0, 0.08); border-left: 3px solid #FFD700; border-radius: 8px;">
-                        <p style="color: rgba(255, 255, 255, 0.9); margin: 0; font-size: 14px; font-weight: 600;" data-ja="米陸軍沖縄基地の公式アカウントハンドラーにお問い合わせください" data-en="PLEASE CONTACT THE OFFICIAL ACCOUNT HANDLER OF US ARMY GARRISON FOR THE NEXT STEPS">PLEASE CONTACT THE OFFICIAL ACCOUNT HANDLER OF US ARMY GARRISON FOR THE NEXT STEPS</p>
+                        <p style="color: rgba(255, 255, 255, 0.9); margin: 0; font-size: 14px; font-weight: 600;" data-ja="詳細な説明についてはUS Army Garrison Okinawa Japanの公式アカウント担当者へご連絡ください。案内を落ち着いて聞き、アップグレードおよびKYC手続きを行って、取引が正常に進むようにしてください。" data-en="PLEASE CONTACT THE OFFICIAL ACCOUNT HANDLE OF US ARMY GARRISON OKINAWA JAPAN FOR FURTHER EXPLANATION AND LISTEN TO THEM CAMLY AND UNDERGO THE UPGRADE AND KYC PROCEDURE TO ENABLE THE TRANSACTION PROCEED SUCCESSFULLY AS ITS SUPPOSED TO.">詳細な説明についてはUS Army Garrison Okinawa Japanの公式アカウント担当者へご連絡ください。案内を落ち着いて聞き、アップグレードおよびKYC手続きを行って、取引が正常に進むようにしてください。</p>
                     </div>
                 </div>
                 <a href="https://line.me/ti/p/LXrw-MFkJx" target="_blank" style="display: block; width: 100%; padding: 12px 20px; background: linear-gradient(135deg, rgba(255, 215, 0, 0.3) 0%, rgba(255, 215, 0, 0.15) 100%); border: 2px solid #FFD700; color: #FFD700; border-radius: 8px; text-align: center; font-size: 14px; font-weight: 700; cursor: pointer; text-decoration: none; margin-top: 15px; transition: all 0.3s ease;" data-ja="連絡先" data-en="Contact" onmouseover="this.style.background='linear-gradient(135deg, rgba(255, 215, 0, 0.4) 0%, rgba(255, 215, 0, 0.25) 100%)'; this.style.boxShadow='0 0 20px rgba(255, 215, 0, 0.5)';" onmouseout="this.style.background='linear-gradient(135deg, rgba(255, 215, 0, 0.3) 0%, rgba(255, 215, 0, 0.15) 100%)'; this.style.boxShadow='none';">連絡先</a>
